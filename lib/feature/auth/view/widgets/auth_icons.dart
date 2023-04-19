@@ -1,5 +1,6 @@
-import 'package:aspandau_flutter_app/theme/app_colors.dart';
+import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthIcons extends StatelessWidget {
   const AuthIcons({super.key});
@@ -22,8 +23,8 @@ class IconGoogle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
-      width: 48,
+      height: 48.h,
+      width: 48.w,
       decoration: AppColors.iconDecoration,
       child: IconButton(
         onPressed: () {},

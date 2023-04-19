@@ -1,7 +1,7 @@
 import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class TopDecorations extends StatelessWidget {
   const TopDecorations({super.key});
@@ -10,7 +10,7 @@ class TopDecorations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(height: 70, color: Colors.black),
+        Container(height: 70.h, color: Colors.black),
         const GreyContainerDecoration(),
         const WhiteContainerDecoration(),
       ],

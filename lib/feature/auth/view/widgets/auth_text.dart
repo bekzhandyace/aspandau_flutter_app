@@ -8,7 +8,7 @@ class TextWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
           'Добро пожаловать,',
           style: AppTextStyle.mainDark,
@@ -28,10 +28,10 @@ class TextGiveAuthSocialNetwork extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 136),
+      padding: const EdgeInsets.only(right: 127),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
             'Или авторизуйтесь, через',
             style: AppTextStyle.mainGrey,

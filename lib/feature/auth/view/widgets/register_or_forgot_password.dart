@@ -8,7 +8,7 @@ class RegisterOrForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
+      children:  [
         Text(
           'Регистрация',
           style: AppTextStyle.smallGreen,
