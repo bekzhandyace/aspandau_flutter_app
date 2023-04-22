@@ -1,8 +1,10 @@
+import 'package:aspandau_flutter_app/feature/auth/bloc/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppTextField {
   static final textFieldEmail = InputDecoration(
+  
     labelText: 'Введите Ваш E-mail',
     suffixIcon: IconButton(
       onPressed: () {},

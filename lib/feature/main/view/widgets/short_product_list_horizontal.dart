@@ -4,27 +4,51 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ShortProductListHorizontal extends StatelessWidget {
+class ShortProductListHorizontal extends StatefulWidget {
   const ShortProductListHorizontal({super.key});
+
+  @override
+  State<ShortProductListHorizontal> createState() =>
+      _ShortProductListHorizontalState();
+}
+
+class _ShortProductListHorizontalState
+    extends State<ShortProductListHorizontal> {
+  final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400.h,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        primary: false,
-        children: [
-          Row(
-            children: const [
-              ServiceInfoContainerWithDiscount(),
-              SizedBox(width: 12),
-              ServiceInfoContainer(),
-              SizedBox(width: 12),
-              ServiceInfoContainerWithDiscount(),
+      child: Container(
+        height: 400.h,
+        child: Scrollbar(
+          controller: _scrollController,
+          thumbVisibility: true,
+          thickness: 4,
+          child: ListView(
+            controller: _scrollController,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            scrollDirection: Axis.horizontal,
+            primary: false,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      ServiceInfoContainerWithDiscount(),
+                      SizedBox(width: 12),
+                      ServiceInfoContainer(),
+                      SizedBox(width: 12),
+                      ServiceInfoContainerWithDiscount(),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

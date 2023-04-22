@@ -4,3 +4,4 @@ export 'details_button.dart';
 export 'more_details_button.dart';
 export 'details_description.dart';
 export 'self_learning_service_button.dart';
+export 'curator_support_service_button.dart';

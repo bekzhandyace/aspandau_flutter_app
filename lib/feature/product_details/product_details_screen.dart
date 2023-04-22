@@ -9,27 +9,27 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24, top: 60).r,
-              child: Column(
-                children: [
-                  const DetailsAppBar(),
-                  const DetailsSomeInfo(),
-                  SizedBox(height: 20.h),
-                  const DetailsButton(),
-                  SizedBox(height: 28.h),
-                  const DetailsDescription(),
-                ],
+      body: Scrollbar(
+        thumbVisibility: true,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 24, right: 24, top: 60).r,
+                child: Column(
+                  children: [
+                    const DetailsAppBar(),
+                    const DetailsSomeInfo(),
+                    SizedBox(height: 20.h),
+                    const DetailsButton(),
+                    SizedBox(height: 28.h),
+                    const DetailsDescription(),
+                  ],
+                ),
               ),
-            ),
-            const MoreDetailsButton(),
-            Container(
-              height: 50.h,
-            ),
-          ],
+              const MoreDetailsButton(),
+            ],
+          ),
         ),
       ),
     );

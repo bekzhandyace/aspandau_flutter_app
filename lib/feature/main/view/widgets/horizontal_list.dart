@@ -14,6 +14,7 @@ class HorizontalList extends StatelessWidget {
       height: 48.h,
       child: ListView(
         scrollDirection: Axis.horizontal,
+        primary: false,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -27,7 +28,6 @@ class HorizontalList extends StatelessWidget {
               SizedBox(width: 15.w),
               masterOfGovernmentAdministrationButton(heightButton),
               SizedBox(height: 57),
-              
             ],
           ),
         ],

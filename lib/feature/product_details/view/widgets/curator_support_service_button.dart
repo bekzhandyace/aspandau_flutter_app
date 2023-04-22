@@ -54,7 +54,7 @@ class CuratorSupportServiceButton extends StatelessWidget {
                           bottom: MediaQuery.of(context).viewInsets.bottom,
                         ),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.54,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: const [

@@ -1,24 +1,97 @@
 import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AuthTextField extends StatelessWidget {
+class AuthTextField extends StatefulWidget {
   const AuthTextField({super.key});
+
+  @override
+  State<AuthTextField> createState() => _AuthTextFieldState();
+}
+
+class _AuthTextFieldState extends State<AuthTextField> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  bool _obscureText = true;
+
+  void _toggleVisibility() {
+    _obscureText = !_obscureText;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextField(
-          textInputAction: TextInputAction.next,
-          keyboardType: TextInputType.emailAddress,
-          decoration: AppTextField.textFieldEmail,
-        ),
-        const SizedBox(height: 12),
-        TextField(
-          obscureText: true,
-          keyboardType: TextInputType.text,
-          decoration: AppTextField.textFieldPassword,
-        ),
+        Form(
+          child: Column(
+            children: [
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Введите Ваш E-mail',
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.edit_outlined),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12).w,
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.h),
+              TextFormField(
+                obscureText: _obscureText,
+                keyboardType: TextInputType.datetime,
+                decoration: InputDecoration(
+                  labelText: 'Пароль',
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        if (_obscureText) {
+                          _toggleVisibility();
+                         
+                        } else {
+                          _toggleVisibility();
+                        }
+                      },
+                      icon: Icon(
+                        _obscureText
+                            ? Icons.remove_red_eye_outlined
+                            : Icons.visibility_off,
+                      )),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12).w,
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please eneter some text';
+                  } else if (value.length < 1) {
+                    return "Password must be at least 1 characters";
+                  } else if (!value
+                      .contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+                    return 'Password must contain at least one special character';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 12.h),
+              SizedBox(
+                width: 350.w,
+                height: 48.h,
+                child: ElevatedButton(
+                  style: AppButtonStyle.linkButton,
+                  onPressed: () {},
+                  child: Text(
+                    'Войти',
+                    style: AppTextStyle.buttonTextStyle,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }

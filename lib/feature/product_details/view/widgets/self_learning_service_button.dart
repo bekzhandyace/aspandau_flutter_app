@@ -53,7 +53,7 @@ class SelfLearningServiceButton extends StatelessWidget {
                           bottom: MediaQuery.of(context).viewInsets.bottom,
                         ),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.54,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: const [
@@ -68,10 +68,10 @@ class SelfLearningServiceButton extends StatelessWidget {
               },
             );
           },
-          child: const Text(
+          child: Text(
             'Купить за  135 000 ₸',
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 17.sp,
               fontWeight: FontWeight.w600,
               color: AppColors.greenButton,
             ),
