@@ -42,7 +42,7 @@ class _PaymentModalState extends State<PaymentModal> {
     _expiryDateController.dispose();
     _cvvController.dispose();
 
-    _expiryDateController.dispose();
+    // _expiryDateController.dispose();
     _cardNumberFocusNode.dispose();
     _expiryDateFocusNode.dispose();
     _cvvFocusNode.dispose();
@@ -88,8 +88,16 @@ class _PaymentModalState extends State<PaymentModal> {
                   child: FutureBuilder(
                       future: Future.delayed(Duration(seconds: 3)),
                       builder: (BuildContext context, AsyncSnapsnapshot) {
+                        Future.delayed(const Duration(seconds: 2));
+
                         return Center(
-                          child: CircularProgressIndicator(),
+                          child: Text(
+                            'success',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         );
                       }));
             }

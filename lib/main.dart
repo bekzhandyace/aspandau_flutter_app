@@ -5,5 +5,5 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();
-  runApp(const AspandauApp());
+  runApp(const MainApp());
 }

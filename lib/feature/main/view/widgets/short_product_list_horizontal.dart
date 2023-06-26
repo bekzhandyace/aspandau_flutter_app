@@ -1,3 +1,5 @@
+import 'package:aspandau_flutter_app/core/api/dio_client.dart';
+import 'package:aspandau_flutter_app/feature/main/view/widgets/product_info.dart';
 import 'package:aspandau_flutter_app/feature/product_details/product_details_screen.dart';
 import 'package:aspandau_flutter_app/repositories/products/models/product.dart';
 import 'package:aspandau_flutter_app/theme/theme.dart';
@@ -42,11 +44,77 @@ class _ShortProductListHorizontalState
                 children: [
                   Row(
                     children: [
-                      ServiceInfoContainerWithDiscount(),
+                      ProductInfo(
+                        text: Text(
+                          '168 000',
+                          style: TextStyle(
+                            color: const Color.fromRGBO(133, 141, 164, 1),
+                            decoration: TextDecoration.lineThrough,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        discount: Container(
+                          decoration: BoxDecoration(
+                            gradient: AppColors.gradientGreen,
+                            borderRadius: BorderRadius.circular(8).w,
+                          ),
+                          width: 58.w,
+                          height: 33.h,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 6.h,
+                              horizontal: 2.w,
+                            ),
+                            child: Text(
+                              '-35%',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       SizedBox(width: 12),
-                      ServiceInfoContainer(),
+                      ProductInfo(text: Text(''), discount: Text('')),
                       SizedBox(width: 12),
-                      ServiceInfoContainerWithDiscount(),
+                      ProductInfo(
+                        text: Text(
+                          '168 000',
+                          style: TextStyle(
+                            color: const Color.fromRGBO(133, 141, 164, 1),
+                            decoration: TextDecoration.lineThrough,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        discount: Container(
+                          decoration: BoxDecoration(
+                            gradient: AppColors.gradientGreen,
+                            borderRadius: BorderRadius.circular(8).w,
+                          ),
+                          width: 58.w,
+                          height: 33.h,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 6.h,
+                              horizontal: 2.w,
+                            ),
+                            child: Text(
+                              '-35%',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -59,279 +127,3 @@ class _ShortProductListHorizontalState
   }
 }
 
-class ServiceInfoContainerWithDiscount extends StatefulWidget {
-  ServiceInfoContainerWithDiscount({super.key});
-
-  @override
-  State<ServiceInfoContainerWithDiscount> createState() =>
-      _ServiceInfoContainerWithDiscountState();
-}
-
-class _ServiceInfoContainerWithDiscountState
-    extends State<ServiceInfoContainerWithDiscount> {
-  String _moduleTitle = '';
-
-  String _moduleImage = '';
-
-  String _modulePrice = '';
-
-  final dio = Dio();
-
-  Future<void> fetchModuleData() async {
-    try {
-      final response = await dio.get('modules/');
-
-      Map<String, dynamic> moduleData = response.data;
-
-      setState(() {
-        _moduleImage = moduleData["avatar"];
-        _moduleTitle = moduleData["title"];
-        _modulePrice = moduleData["cost"];
-      });
-    } catch (e) {
-      throw Exception('Failed to fetch modelus: $e');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color.fromRGBO(216, 221, 230, 1),
-        ),
-        borderRadius: BorderRadius.circular(16).w,
-      ),
-      width: 297.w,
-      height: 392.h,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 24,
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: AppColors.gradientGreen,
-                      borderRadius: BorderRadius.circular(8).w,
-                    ),
-                    width: 58.w,
-                    height: 33.h,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6,
-                        horizontal: 2,
-                      ),
-                      child: Text(
-                        '-35%',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17.sp,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 265.w,
-                    height: 209.h,
-                    child: Image.asset('assets/images/group.png'),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 18),
-            const Text(
-              'Государственное правление и управление',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '168 000',
-                      style: TextStyle(
-                        color: const Color.fromRGBO(133, 141, 164, 1),
-                        decoration: TextDecoration.lineThrough,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      '135 000',
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppTextStyle.green,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 48.h,
-                  width: 128.w,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: AppColors.gradientGreen,
-                      borderRadius: BorderRadius.circular(12).w,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.transparent,
-                        shadowColor: Colors.white.withOpacity(0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12).w,
-                          side: const BorderSide(
-                            color: AppColors.transparent,
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/main/productDetails');
-                      },
-                      child: const Text(
-                        'Подробнее',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ServiceInfoContainer extends StatelessWidget {
-  const ServiceInfoContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color.fromRGBO(216, 221, 230, 1),
-        ),
-        borderRadius: BorderRadius.circular(16).w,
-      ),
-      width: 297.w,
-      height: 392.h,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 24,
-              ),
-              child: Stack(
-                children: [
-                  SizedBox(
-                    width: 265.w,
-                    height: 209.h,
-                    child: Image.asset('assets/images/group.png'),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 18),
-            const Text(
-              'Государственное правление и управление',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 20,
-                      ),
-                      child: Text(
-                        '135 000',
-                        style: TextStyle(
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w700,
-                          color: AppTextStyle.green,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 48.h,
-                  width: 128.w,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: AppColors.gradientGreen,
-                      borderRadius: BorderRadius.circular(12).w,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.transparent,
-                        shadowColor: Colors.white.withOpacity(0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12).w,
-                          side: const BorderSide(
-                            color: AppColors.transparent,
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ProductDetails(),
-                            ),
-                            (Route<dynamic> route) => false);
-                      },
-                      child: const Text(
-                        'Подробнее',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
