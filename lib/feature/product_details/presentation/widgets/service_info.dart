@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'deatils.dart';
+import 'details_app_bar.dart';
+import 'details_button.dart';
+import 'details_description.dart';
+import 'details_some_info.dart';
 
 class ServiceInfo extends StatelessWidget {
   const ServiceInfo({super.key});

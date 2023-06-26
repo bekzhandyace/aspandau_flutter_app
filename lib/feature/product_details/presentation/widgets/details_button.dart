@@ -1,8 +1,11 @@
-import 'package:aspandau_flutter_app/feature/product_details/view/widgets/support_service_button.dart';
-import 'package:aspandau_flutter_app/feature/product_details/view/widgets/deatils.dart';
+
+
 import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'self_learning_service_button.dart';
+import 'support_service_button.dart';
 
 class DetailsButton extends StatefulWidget {
   const DetailsButton({super.key});

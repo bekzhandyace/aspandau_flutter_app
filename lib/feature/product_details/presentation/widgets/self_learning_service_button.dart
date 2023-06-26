@@ -1,4 +1,4 @@
-import 'package:aspandau_flutter_app/feature/payment_screen/view/widgets/view.dart';
+import 'package:aspandau_flutter_app/feature/payment_screen/presentation/widgets/view.dart';
 import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

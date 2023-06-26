@@ -1,7 +1,10 @@
-import 'package:aspandau_flutter_app/feature/product_details/view/widgets/deatils.dart';
-import 'package:aspandau_flutter_app/feature/product_details/view/widgets/service_info.dart';
+
+
 
 import 'package:flutter/material.dart';
+
+import '../widgets/more_details_button.dart';
+import '../widgets/service_info.dart';
 
 
 class ProductDetails extends StatelessWidget {

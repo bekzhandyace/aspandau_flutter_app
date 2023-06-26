@@ -1,5 +1,5 @@
-import 'package:aspandau_flutter_app/feature/main/view/widgets/additional_info.dart';
-import 'package:aspandau_flutter_app/feature/main/view/widgets/view.dart';
+import 'package:aspandau_flutter_app/feature/main/presentation/widgets/additional_info.dart';
+import 'package:aspandau_flutter_app/feature/main/presentation/widgets/view.dart';
 import 'package:aspandau_flutter_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
