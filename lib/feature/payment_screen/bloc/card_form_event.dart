@@ -20,4 +20,16 @@ class CardFormAddCard extends CardFormEvent {
     required this.cardCvv,
     required this.cardHolderName,
   });
+
+  @override
+  List<Object> get props => [
+        cardNumber,
+        cardExpiryDate,
+        cardCvv,
+        cardHolderName,
+      ];
+
+  @override
+  String toString() =>
+      'LoginButtonPreesed(cardNumber: $cardNumber, cardExpiryDate: $cardExpiryDate, cardCvv: $cardCvv,cardHolderName: $cardHolderName,)';
 }

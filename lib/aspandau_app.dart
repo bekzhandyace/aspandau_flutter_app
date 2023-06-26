@@ -1,5 +1,6 @@
 import 'package:aspandau_flutter_app/feature/auth/auth.dart';
 import 'package:aspandau_flutter_app/feature/auth/bloc/repositories/auth_repositories.dart';
+import 'package:aspandau_flutter_app/feature/payment_screen/bloc/card_repositories.dart';
 
 import 'package:aspandau_flutter_app/router/router.dart';
 import 'package:aspandau_flutter_app/theme/app_colors.dart';
@@ -16,8 +17,16 @@ class AspandauApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? child) {
-        return RepositoryProvider(
-          create: (context) => AuthRepository(),
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider(
+              create: (context) => AuthRepository(),
+              
+            ),
+            RepositoryProvider(
+              create: (context) => CardRepositories(),
+            ),
+          ],
           child: MaterialApp(
             home: AuthScreenWidget(),
             theme: ThemeData(

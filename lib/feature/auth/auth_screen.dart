@@ -79,9 +79,7 @@ class _AuthScreenWidgetState extends State<AuthScreenWidget> {
                         },
                         child: BlocBuilder<AuthBloc, AuthState>(
                           builder: (context, state) {
-                            if (state is AuthLoading) {
-                              return CircularProgressIndicator();
-                            } else if (state is AuthSuccess) {
+                            if (state is AuthSuccess) {
                               Navigator.pushReplacementNamed(
                                   context, '/auth/main');
                               print('succes');
@@ -142,11 +140,6 @@ class _AuthScreenWidgetState extends State<AuthScreenWidget> {
                                   child: ElevatedButton(
                                     style: AppButtonStyle.linkButton,
                                     onPressed: () {
-                                      setState(() {
-                                        if (state is AuthSuccess) {
-                                          CircularProgressIndicator();
-                                        }
-                                      });
                                       context.read<AuthBloc>().add(
                                             SendDataEvent(
                                               email: emailController.text,
@@ -182,3 +175,4 @@ class _AuthScreenWidgetState extends State<AuthScreenWidget> {
     );
   }
 }
+

@@ -1,5 +1,7 @@
 import 'package:aspandau_flutter_app/feature/product_details/product_details_screen.dart';
+import 'package:aspandau_flutter_app/repositories/products/models/product.dart';
 import 'package:aspandau_flutter_app/theme/theme.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +17,9 @@ class ShortProductListHorizontal extends StatefulWidget {
 class _ShortProductListHorizontalState
     extends State<ShortProductListHorizontal> {
   final _scrollController = ScrollController();
+  final dio = Dio();
+  final List<ProductModul> modules = [];
+  final api = 'https://lmsyoko.store/api/v1/';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,7 @@ class _ShortProductListHorizontalState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       ServiceInfoContainerWithDiscount(),
                       SizedBox(width: 12),
                       ServiceInfoContainer(),
@@ -54,8 +59,39 @@ class _ShortProductListHorizontalState
   }
 }
 
-class ServiceInfoContainerWithDiscount extends StatelessWidget {
-  const ServiceInfoContainerWithDiscount({super.key});
+class ServiceInfoContainerWithDiscount extends StatefulWidget {
+  ServiceInfoContainerWithDiscount({super.key});
+
+  @override
+  State<ServiceInfoContainerWithDiscount> createState() =>
+      _ServiceInfoContainerWithDiscountState();
+}
+
+class _ServiceInfoContainerWithDiscountState
+    extends State<ServiceInfoContainerWithDiscount> {
+  String _moduleTitle = '';
+
+  String _moduleImage = '';
+
+  String _modulePrice = '';
+
+  final dio = Dio();
+
+  Future<void> fetchModuleData() async {
+    try {
+      final response = await dio.get('modules/');
+
+      Map<String, dynamic> moduleData = response.data;
+
+      setState(() {
+        _moduleImage = moduleData["avatar"];
+        _moduleTitle = moduleData["title"];
+        _modulePrice = moduleData["cost"];
+      });
+    } catch (e) {
+      throw Exception('Failed to fetch modelus: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

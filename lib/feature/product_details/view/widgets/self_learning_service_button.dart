@@ -43,17 +43,18 @@ class SelfLearningServiceButton extends StatelessWidget {
               builder: (BuildContext context) {
                 return SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 24,
+                    padding: const EdgeInsets.only(
+                      left: 24,
+                      right: 24,
+                      top: 24,
                     ),
-                    child: SafeArea(
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom,
+                      ),
                       child: Container(
-                        padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom,
-                        ),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.54,
+                        height: MediaQuery.of(context).size.height * 0.60,
+                        child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: const [
