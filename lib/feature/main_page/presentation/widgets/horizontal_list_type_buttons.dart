@@ -56,7 +56,7 @@ class HorizontalListTypeButtons extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(110),
                 ),
-                width: 269.w,
+                width: 230.w,
                 style: AppButtonStyle.horizontListButtonStyle,
                 title: Text(
                   'Master of Organization Administration',

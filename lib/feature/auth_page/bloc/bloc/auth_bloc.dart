@@ -1,7 +1,9 @@
-import 'package:aspandau_flutter_app/feature/auth/bloc/repositories/auth_repositories.dart';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:logger/logger.dart';
+
+import '../repositories/auth_repositories.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

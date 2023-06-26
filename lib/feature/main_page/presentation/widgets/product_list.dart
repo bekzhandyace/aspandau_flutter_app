@@ -1,4 +1,4 @@
-import 'package:aspandau_flutter_app/feature/main/presentation/widgets/product_info.dart';
+import 'package:aspandau_flutter_app/feature/main_page/presentation/widgets/product_info.dart';
 
 import 'package:aspandau_flutter_app/theme/theme.dart';
 
