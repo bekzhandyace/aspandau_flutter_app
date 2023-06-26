@@ -20,14 +20,13 @@ class MainApp extends StatelessWidget {
           providers: [
             RepositoryProvider(
               create: (context) => AuthRepository(),
-              
             ),
             RepositoryProvider(
               create: (context) => CardRepositories(),
             ),
           ],
           child: MaterialApp(
-            home: AuthScreenWidget(),
+            home: AuthScreenPage(),
             theme: ThemeData(
               scaffoldBackgroundColor: Colors.white,
               scrollbarTheme: ScrollbarThemeData(

@@ -22,8 +22,8 @@ class TextWelcome extends StatelessWidget {
   }
 }
 
-class TextGiveAuthSocialNetwork extends StatelessWidget {
-  const TextGiveAuthSocialNetwork({super.key});
+class AuthWithSocialNetwork extends StatelessWidget {
+  const AuthWithSocialNetwork({super.key});
 
   @override
   Widget build(BuildContext context) {

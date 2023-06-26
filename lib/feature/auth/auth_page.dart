@@ -10,14 +10,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'bloc/bloc/auth_bloc.dart';
 
-class AuthScreenWidget extends StatefulWidget {
-  AuthScreenWidget({super.key});
+class AuthScreenPage extends StatefulWidget {
+  AuthScreenPage({super.key});
 
   @override
-  State<AuthScreenWidget> createState() => _AuthScreenWidgetState();
+  State<AuthScreenPage> createState() => _AuthScreenPageState();
 }
 
-class _AuthScreenWidgetState extends State<AuthScreenWidget> {
+class _AuthScreenPageState extends State<AuthScreenPage> {
   final authRepository = AuthRepository();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -161,9 +161,9 @@ class _AuthScreenWidgetState extends State<AuthScreenWidget> {
                       SizedBox(height: 12.h),
                       const RegisterOrForgotPassword(),
                       SizedBox(height: 32.h),
-                      const TextGiveAuthSocialNetwork(),
+                      const AuthWithSocialNetwork(),
                       SizedBox(height: 12.h),
-                      const AuthIcons(),
+                      const SelectAuth(),
                     ],
                   ),
                 ),
@@ -175,4 +175,3 @@ class _AuthScreenWidgetState extends State<AuthScreenWidget> {
     );
   }
 }
-

@@ -26,9 +26,9 @@ class MainScreen extends StatelessWidget {
                     children: [
                       const AppBarWidget(),
                       SizedBox(height: 15.h),
-                      const HorizontalList(),
+                      const HorizontalListTypeButtons(),
                       SizedBox(height: 16.h),
-                      const ShortProductListHorizontal(),
+                      const ProductList(),
                       SizedBox(height: 57.h),
                       Column(
                         children: [

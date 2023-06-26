@@ -49,9 +49,3 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
 
 
-// try {
-//         await repository.login(email: event.email, password: event.password);
-//         emit(AuthSuccess(repository: repository));
-//       } catch (e) {
-//         emit(AuthFailure(errorMessage: errorMessage));
-//       }
