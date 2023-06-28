@@ -45,7 +45,7 @@ class MainApp extends StatelessWidget {
                   GoogleFonts.manropeTextTheme(Theme.of(context).textTheme),
             ),
             routes: routes,
-            initialRoute: '/auth',
+            initialRoute: '/splashScreen',
           ),
         );
       },

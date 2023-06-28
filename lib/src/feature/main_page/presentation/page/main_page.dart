@@ -4,11 +4,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../app/feature/main_page/presentation/widgets/product_list.dart';
-import '../../../../core/theme/theme.dart';
+
+
+import '../../../../core/theme/app_text_style.dart';
 import '../widgets/additional_info.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/horizontal_list_type_buttons.dart';
+import '../widgets/view.dart';
 
 
 class MainScreen extends StatelessWidget {

@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../app/core/api/dio_client.dart';
-import '../../../../../app/core/theme/app_button_style.dart';
-import '../../../../../app/feature/auth_page/bloc/bloc/auth_bloc.dart';
-import '../../../../../app/feature/auth_page/bloc/repositories/auth_repositories.dart';
+
+
+
+
+import '../../../../../core/theme/app_button_style.dart';
+import '../../../../../feature/auth_page/bloc/bloc/auth_bloc.dart';
+import '../../../../../feature/auth_page/bloc/repositories/auth_repositories.dart';
+import '../../../../../feature/auth_page/presentation/page/auth_page.dart';
+import '../../../../core/api/dio_client.dart';
 import '../../../../core/theme/app_text_style.dart';
 import '../widgets/auth_text.dart';
 import '../widgets/register_or_forgot_password.dart';
@@ -26,8 +31,8 @@ class AuthScreenPage extends StatefulWidget {
 class _AuthScreenPageState extends State<AuthScreenPage> {
   final dio = DioClient();
   final _authRepository = AuthRepository();
-  final _emailController = TextEditingController(text: 'admin@admin.kz');
-  final _passwordController = TextEditingController(text: '1');
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   String? errorMessage;
 
@@ -72,7 +77,7 @@ class _AuthScreenPageState extends State<AuthScreenPage> {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: _authRepository,
-      child: BlocProvider(
+      child: BlocProvider<AuthBloc>(
         create: (context) => AuthBloc(
           repository: _authRepository,
         ),
@@ -167,39 +172,4 @@ class _AuthScreenPageState extends State<AuthScreenPage> {
   }
 }
 
-class EmailTextField extends StatefulWidget {
-  final TextEditingController controller;
-  final String? errorText;
-  const EmailTextField({
-    super.key,
-    required this.controller,
-    required this.errorText,
-  });
 
-  @override
-  State<EmailTextField> createState() => _EmailTextFieldState();
-}
-
-class _EmailTextFieldState extends State<EmailTextField> {
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
-      textInputAction: TextInputAction.next,
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        errorText: widget.errorText,
-        labelText: 'Введите Ваш E-mail',
-        suffixIcon: IconButton(
-          onPressed: () {
-            widget.controller.clear();
-          },
-          icon: const Icon(Icons.edit_outlined),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12).w,
-        ),
-      ),
-    );
-  }
-}

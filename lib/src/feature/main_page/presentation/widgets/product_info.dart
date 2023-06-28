@@ -1,7 +1,6 @@
-
+import 'package:aspandau_flutter_app/src/feature/product_details/presentation/page/service_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 import '../../../../core/theme/theme.dart';
 
@@ -135,7 +134,13 @@ class _ProductInfoState extends State<ProductInfo> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/main/productDetails');
+                        WidgetsBinding.instance!.addPostFrameCallback((_) {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return const ProductDetails();
+                            },
+                          ));
+                        });
                       },
                       child: const Text(
                         'Подробнее',
