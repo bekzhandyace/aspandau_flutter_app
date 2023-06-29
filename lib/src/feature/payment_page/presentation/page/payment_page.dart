@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,10 +12,9 @@ class PaymentScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: GestureDetector(
         onTap: () {
-          Navigator.pop(context);
+          Navigator.of(context).pop(context);
         },
         child: Scaffold(
-          
           backgroundColor: Colors.transparent,
           body: Align(
             alignment: Alignment.bottomCenter,
@@ -24,7 +22,7 @@ class PaymentScreen extends StatelessWidget {
               child: Dismissible(
                 direction: DismissDirection.down,
                 onDismissed: (direction) {
-                  Navigator.pop(context);
+                  Navigator.of(context).pop(context);
                 },
                 key: UniqueKey(),
                 child: Container(

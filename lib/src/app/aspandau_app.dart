@@ -1,19 +1,11 @@
-
-
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-
-import '../../feature/auth_page/bloc/repositories/auth_repositories.dart';
-import '../../feature/auth_page/presentation/page/auth_page.dart';
-import '../../feature/payment_page/bloc/card_repositories.dart';
 import '../core/router/router.dart';
+import '../feature/auth_page/auth.dart';
+import '../feature/auth_page/bloc/repositories/auth_repositories.dart';
+import '../feature/payment_page/bloc/repositories/card_repositories.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});

@@ -1,4 +1,4 @@
-import 'package:aspandau_flutter_app/app/core/api/dio_client.dart';
+
 
 
 
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/api/dio_client.dart';
 import 'product_info.dart';
 
 class ProductList extends StatefulWidget {

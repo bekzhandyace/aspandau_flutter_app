@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../app/core/theme/app_button_style.dart';
+
+import '../../../../core/theme/app_button_style.dart';
 import '../../../../core/theme/app_text_style.dart';
 
 class AuthTextField extends StatefulWidget {

@@ -134,13 +134,12 @@ class _ProductInfoState extends State<ProductInfo> {
                         ),
                       ),
                       onPressed: () {
-                        WidgetsBinding.instance!.addPostFrameCallback((_) {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const ProductDetails();
-                            },
-                          ));
-                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetails(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Подробнее',

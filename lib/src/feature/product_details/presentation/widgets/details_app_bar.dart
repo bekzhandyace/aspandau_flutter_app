@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +21,7 @@ class DetailsAppBar extends StatelessWidget {
           child: IconButton(
             color: AppColors.greenButton,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.of(context).pop(context);
             },
             icon: Padding(
               padding: const EdgeInsets.only(
@@ -34,7 +33,7 @@ class DetailsAppBar extends StatelessWidget {
             ),
           ),
         ),
-         SizedBox(width: 17.w),
+        SizedBox(width: 17.w),
         Text(
           'Модуль Государственное прав...',
           maxLines: 1,

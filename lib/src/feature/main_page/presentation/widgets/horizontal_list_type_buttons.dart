@@ -1,4 +1,3 @@
-
 import 'package:aspandau_flutter_app/src/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +57,7 @@ class HorizontalListTypeButtons extends StatelessWidget {
                   borderRadius: BorderRadius.circular(110),
                 ),
                 width: 230.w,
-                style: AppButtonStyle.horizontListButtonStyle,
+                style: AppButtonStyle.horizontalListButtonStyle,
                 title: Text(
                   'Master of Organization Administration',
                   textAlign: TextAlign.center,
@@ -86,7 +85,7 @@ class HorizontalListTypeButtons extends StatelessWidget {
                   borderRadius: BorderRadius.circular(110),
                 ),
                 width: 168.w,
-                style: AppButtonStyle.horizontListButtonStyle,
+                style: AppButtonStyle.horizontalListButtonStyle,
               ),
               SizedBox(width: 15.w),
               HorizontalListCustomButton(
@@ -104,7 +103,7 @@ class HorizontalListTypeButtons extends StatelessWidget {
                   borderRadius: BorderRadius.circular(110),
                 ),
                 width: 280.w,
-                style: AppButtonStyle.horizontListButtonStyle,
+                style: AppButtonStyle.horizontalListButtonStyle,
               ),
               SizedBox(height: 57),
             ],

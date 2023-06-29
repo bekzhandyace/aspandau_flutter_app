@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 
-import 'card_repositories.dart';
+import 'repositories/card_repositories.dart';
 
 part 'card_form_event.dart';
 part 'card_form_state.dart';
